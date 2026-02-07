@@ -1,9 +1,7 @@
-#!/usr/bin/env -S dotnet fsi
-#r "nuget: Expecto, 10.2.3"
-#load "./Lib.fsx"
+module CommitToBranchName.Lib.Tests
 open Expecto
 
-open Lib
+open CommitToBranchName.Lib
 
 [<Tests>]
 let escapeTest =
@@ -24,7 +22,3 @@ let escapeTest =
                 "fixStatement-exec-return-LocationNotFound-error-in-RemoveObjectFromLocation"
                 ""
     ]
-
-exit (
-    runTestsWithCLIArgs [] fsi.CommandLineArgs[1..] escapeTest
-)

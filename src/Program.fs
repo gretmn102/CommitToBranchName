@@ -1,10 +1,10 @@
-#!/usr/bin/env -S dotnet fsi
+module CommitToBranchName.Program
 // todo: #r "nuget: Argu, 6.2.5"
-open "Lib.fsx"
+open Lib
 
 // todo: "-" -- stdin
-exit (
+[<EntryPoint>]
+let main args =
     let commitName = stdin.ReadToEnd()
     escape commitName |> printfn "%s"
-    System.Environment.ExitCode
-)
+    0
